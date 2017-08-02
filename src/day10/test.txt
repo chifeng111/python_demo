@@ -1,0 +1,14 @@
+<html>
+	<head>
+	
+	</head>
+	
+	
+	<body>
+		<a>hahh</a>
+	    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/shanzhizi/rss/list">¹þ¹þ£¿£¿£¿</link>
+	    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+	    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+	</body>
+
+</html>
