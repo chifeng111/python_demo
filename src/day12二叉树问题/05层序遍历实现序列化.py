@@ -1,5 +1,5 @@
 # coding: utf-8
-from _collections import deque
+from collections import deque
 
 
 class Node(object):
@@ -32,7 +32,34 @@ def serialByLevel(head):
     return res
 
 
+def reconByLevelString(_str):
+    values = deque(_str.split("!"))
+    values.pop()
+    for i in range(len(values)):
+        if values[i] == "#":
+            values[i] = None
+        else:
+            values[i] = Node(values[i])
+    head = values.popleft()
+    queue = deque()
+    queue.insert(0, head)
+    while queue:
+        node = queue.pop()
+        node.left = values.popleft()
+        node.right = values.popleft()
+        if node.left:
+            queue.insert(0, node.left)
+        if node.right:
+            queue.insert(0, node.right)
+    return head
+
+
 if __name__ == '__main__':
     head = createBTree()
     res = serialByLevel(head)
-    print(res)
+    print("序列化：", end=""), print(res)
+    print("反序列化：")
+    h = reconByLevelString(res)
+    print(h.value)
+    print(h.left.value)
+    print(h.right)
