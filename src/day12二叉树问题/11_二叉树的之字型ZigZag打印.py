@@ -1,4 +1,5 @@
 # coding: utf-8
+from collections import deque
 
 
 class Node(object):
@@ -21,7 +22,45 @@ def createBTree():
 
 
 def printByZigZag(head):
-    pass
+    queue = deque()
+    queue.insert(0, None)
+    queue.insert(0, head)
+    top = True
+    print("Level 1 from left to right: ", end="")
+    level = 2
+    while queue:
+        if top:
+            h = queue.popleft()
+            if h:
+                print(h.value, end=" ")
+                if h.right:
+                    queue.append(h.left)
+                if h.left:
+                    queue.append(h.right)
+            else:
+                if queue:
+                    queue.insert(0, None)
+                    print("\nLevel {} from right to left: ".format(level), end="")
+                    top = False
+                    level += 1
+                else:
+                    break
+        else:
+            h = queue.pop()
+            if h:
+                print(h.value, end=" ")
+                if h.left:
+                    queue.insert(0, h.right)
+                if h.right:
+                    queue.insert(0, h.left)
+            else:
+                if queue:
+                    queue.append(None)
+                    print("\nLevel {} from left to right: ".format(level), end="")
+                    top = True
+                    level += 1
+                else:
+                    break
 
 
 if __name__ == '__main__':

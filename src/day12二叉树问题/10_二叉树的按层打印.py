@@ -40,7 +40,7 @@ def printByLevel(head):
             print("\nLevel {} : ".format(level), end='')
             level += 1
             queue.insert(0, None)
-    print()
+#     print()
 
 
 if __name__ == '__main__':
