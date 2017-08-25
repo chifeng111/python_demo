@@ -25,7 +25,7 @@ def printByZigZag(head):
     queue = deque()
     queue.insert(0, None)
     queue.insert(0, head)
-    top = True
+    top = True  # true代表从头进从头出，false代表从尾进从尾出
     print("Level 1 from left to right: ", end="")
     level = 2
     while queue:
