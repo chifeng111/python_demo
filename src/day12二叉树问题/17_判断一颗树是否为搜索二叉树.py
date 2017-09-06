@@ -12,13 +12,29 @@ class Node(object):
 
 
 def createBTree():
-    pass
+    _1, _3, _5, _7 = Node(1), Node(3), Node(5), Node(7)
+    _2, _6 = Node(2, _1, _3), Node(6, _5, _7)
+    _4 = Node(8, _2, _6)
+    return _4
 
 
 def isBST(head):
-    pass
+    pre = None
+    stack = list()
+    while stack or head:
+        if head:
+            stack.append(head)
+            head = head.left
+        elif stack:
+            head = stack.pop()
+            if pre and pre.value > head.value:
+                return False
+            pre = head  # 记住当前值，用于和下一次对比
+#             print(node.value)
+            head = head.right
+    return True
 
 
 if __name__ == '__main__':
     head = createBTree()
-    isBST(head)
+    print(isBST(head))
