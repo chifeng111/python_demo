@@ -14,7 +14,7 @@ class Node(object):
 def createBTree():
     _1, _3, _5, _7 = Node(1), Node(3), Node(5), Node(7)
     _2, _6 = Node(2, _1, _3), Node(6, _5, _7)
-    _4 = Node(8, _2, _6)
+    _4 = Node(4, _2, _6)
     return _4
 
 
